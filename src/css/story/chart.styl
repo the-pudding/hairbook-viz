@@ -1,0 +1,118 @@
+/* CUSTOM STORY STYLE */
+.chart
+	width 100%
+	margin 0 auto
+	padding 6rem 1rem 3rem 1rem
+
+	figure
+		width 100%
+		height 500px
+		position relative
+
+.Female
+	stroke $hb-green
+	stroke-width 4px
+	fill none
+
+.Male
+	stroke $hb-yellow
+	stroke-width 4px
+	fill none
+
+.x.axis
+	.domain
+			display none
+	.tick
+		line
+			display none
+		text
+			font-family $courier
+			font-weight 700
+			set-type-size('root', true)
+			color $black
+
+.y.axis
+	//display none
+	.domain
+			display none
+	.tick
+		line
+			stroke $hb-tan
+			stroke-dasharray 2
+		text
+			display none
+			font-family $courier
+			font-weight 700
+			set-type-size('root', true)
+
+.axis-label
+	font-family $courier
+	font-weight 700
+	set-type-size('root', true)
+	text-transform uppercase
+
+.tooltip
+	position absolute
+	z-index set-index('overlay')
+	visibility hidden
+	pointer-events none
+	max-width 200px
+
+	.f-tip, .m-tip
+		display flex
+		flex-direction row
+		align-items center
+
+	.f-tip .line
+		width 15px
+		border-top 3px solid $hb-green
+		margin-right 5px
+
+	.m-tip .line
+		width 15px
+		border-top 3px solid $hb-yellow
+		margin-right 5px
+
+	p
+		set-type-size('medium', true)
+		font-family $courier
+		font-weight 700
+		margin 0
+		padding 0
+		line-height 1.25
+
+	&.is-visible
+		visibility visible
+
+.vertical
+	position absolute
+	z-index set-index('overlay')
+	visibility hidden
+	height 466px
+	width 2px
+	border-left 2px dashed $black
+	pointer-events none
+
+	&.is-visible
+		visibility visible
+
+.photoWrapper
+	margin 5rem auto
+
+	.f-photos, .m-photos
+		width 100%
+		display flex
+		flex-direction column
+
+		.text
+			width 100%
+			display flex
+			flex-direction row
+
+		.images
+			width 100%
+			display flex
+			flex-direction row
+
+			img
+				width 10%
