@@ -43,6 +43,8 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 		let lineGroup = null;
 		let femaleLine = null;
 		let maleLine = null;
+		let genderArea = null;
+		let drawArea = null;
 
 		// dom elements
 		let $svg = null;
@@ -87,6 +89,14 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 
 			dataByGender = d3.nest()
 				.key(d => d.gender)
+				.entries(data)
+
+			dataByYear = d3.nest()
+				.key(d => d.year)
+				.rollup(values => ({
+					male: values.find(v => v.gender == "Male").smoothed,
+					female: values.find(v => v.gender == "Female").smoothed
+				}))
 				.entries(data)
 
 			femaleData = data.filter(d => d.gender == 'Female')
@@ -226,6 +236,10 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 					.datum(maleData)
 					.attr('class', 'Male')
 
+				drawArea = $vis.append('path')
+					.datum(dataByYear)
+					.attr('class', 'area')
+
 				Chart.resize();
 				Chart.render();
 			},
@@ -277,6 +291,13 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 
 				femaleLine
 					.attr('d', genderLines)
+
+				genderArea = d3.area()
+					.x(d => xScale(d.key))
+					.y0(d => yScale(d.value.female))
+					.y1(d => yScale(d.value.male))
+
+				drawArea.attr('d', genderArea)
 
 				$svg
 					.on('mousemove', lineMouseMove)

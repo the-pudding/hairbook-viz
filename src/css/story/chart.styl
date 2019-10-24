@@ -1,6 +1,7 @@
 /* CUSTOM STORY STYLE */
 .chart
 	width 100%
+	max-width 1200px
 	margin 0 auto
 	padding 6rem 1rem 3rem 1rem
 
@@ -18,6 +19,9 @@
 	stroke $hb-yellow
 	stroke-width 4px
 	fill none
+
+.area
+	fill rgba($hb-yellow, 0.15)
 
 .x.axis
 	.domain
@@ -99,6 +103,9 @@
 .photoWrapper
 	margin 5rem auto
 
+	.f-photos
+		margin-bottom 3rem
+
 	.f-photos, .m-photos
 		width 100%
 		display flex
@@ -108,6 +115,22 @@
 			width 100%
 			display flex
 			flex-direction row
+
+			p
+				font-family $cooper
+				set-type-size('x-large', true)
+				color $off-black
+				margin 0 0 0.5rem 0
+
+				.f-span
+					background-repeat no-repeat
+					background-image linear-gradient(180deg,transparent 0,$hb-green 0)
+					background-position 0 1em
+
+				.m-span
+					background-repeat no-repeat
+					background-image linear-gradient(180deg,transparent 0,$hb-yellow 0)
+					background-position 0 1em
 
 		.images
 			width 100%

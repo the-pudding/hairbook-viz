@@ -7,7 +7,11 @@
 		margin 0 auto
 		text-align center
 		font-family $cooper
-		set-type-size('xxxx-large', true)
+		set-type-size('x7-large', true)
+		color $off-black
+
+	&__space
+		margin-bottom 3rem
 
 	&__dek
 		max-width $column-width
@@ -24,6 +28,7 @@
 		font-weight 700
 		set-type-size('root', true)
 		line-height 1.25
+		color $off-black
 
 	&__time
 		display block
@@ -36,10 +41,11 @@
 		width 100%
 		margin 5rem auto
 
-		.top-border
-			border-top 1px solid $black
-			width 90%
-
 		.player
 			margin 0 auto
+			max-width 900px
+
+	&__text
 			max-width $column-width
+			margin 0 auto
+			font-family $national
