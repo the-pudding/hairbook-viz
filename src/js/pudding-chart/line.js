@@ -214,12 +214,12 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 						.attr('class', 'axis-label smaller-axis-label')
 
 				$upArrow = $biggerLabelGroup.append('svg:image')
-						.attr('xlink:href', `/assets/images/arrow-up.svg`)
+						.attr('xlink:href', `assets/images/arrow-up.svg`)
 						.attr('width', '20px')
 						.attr('height', '20px')
 
 				$downArrow = $smallerLabelGroup.append('svg:image')
-						.attr('xlink:href', `/assets/images/arrow-down.svg`)
+						.attr('xlink:href', `assets/images/arrow-down.svg`)
 						.attr('width', '20px')
 						.attr('height', '20px')
 
