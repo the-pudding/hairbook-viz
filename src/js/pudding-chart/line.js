@@ -45,6 +45,7 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 		let maleLine = null;
 		let genderArea = null;
 		let drawArea = null;
+		let numTicks = null;
 
 		// dom elements
 		let $svg = null;
@@ -103,6 +104,12 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 
 			femaleData = data.filter(d => d.gender == 'Female')
 			maleData = data.filter(d => d.gender == 'Male')
+		}
+
+		function getTicks(w) {
+			if (w > 640) { numTicks = 10 }
+			else { numTicks = 5 }
+			console.log(numTicks)
 		}
 
 		function syncDecade(year) {
@@ -257,6 +264,8 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 					.attr('width', width + marginLeft + marginRight)
 					.attr('height', height + marginTop + marginBottom);
 
+				getTicks(width)
+
 				xScale
 					.domain([minX, maxX])
 					.range([0, width])
@@ -268,7 +277,7 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 				xAxis = d3
 					.axisBottom(xScale)
 					.tickPadding(axisPadding)
-					.ticks(10)
+					.ticks(numTicks)
 					.tickFormat(d3.format('d'))
 
 				yAxis = d3
