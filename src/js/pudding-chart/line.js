@@ -131,15 +131,15 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 
 			$fPhoto = $fPhotoContainer.selectAll('img')
 
-			$fPhoto.attr('src', function(d, i) {
-				return `assets/images/avgs_decade/${decadeMatch}_female_${i+1}.png`
-			})
+			$fPhoto
+				.attr('src', function(d, i) { return `assets/images/avgs_decade/${decadeMatch}_female_${i+1}.png`})
+				.attr('alt', `${decadeMatch}s women's yearbook photo`)
 
 			$mPhoto = $mPhotoContainer.selectAll('img')
 
-			$mPhoto.attr('src', function(d, i) {
-				return `assets/images/avgs_decade/${decadeMatch}_male_${i+1}.png`
-			})
+			$mPhoto
+				.attr('src', function(d, i) { return `assets/images/avgs_decade/${decadeMatch}_male_${i+1}.png`})
+				.attr('alt', `${decadeMatch}s men's yearbook photo`)
 
 			$decadeText.text(`${decadeMatch}s`)
 		}
