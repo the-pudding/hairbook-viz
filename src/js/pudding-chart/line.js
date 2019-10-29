@@ -56,6 +56,8 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 		let $smallerLabelGroup = null;
 		let $upArrow = null;
 		let $downArrow = null;
+		let $fLabel = null;
+		let $mLabel = null;
 		let $tooltip = null;
 		let $vertical = null;
 
@@ -202,6 +204,9 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 				yAxisGroup = $axis.append('g')
 					.attr('class', 'y axis')
 
+				$fLabel = $g.append('text').attr('class', 'f-label').text('Women')
+				$mLabel = $g.append('text').attr('class', 'm-label').text('Men')
+
 				$biggerLabelGroup = $svg.append('g')
 				$smallerLabelGroup = $svg.append('g')
 
@@ -303,6 +308,14 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 					.on('mousemove', lineMouseMove)
 					.on('mouseover', lineMouseMove)
 					.on('mouseout', lineMouseOut)
+
+				$fLabel
+					.attr('x', width)
+					.attr('y', 30)
+
+				$mLabel
+					.attr('x', 0)
+					.attr('y', height/1.5)
 
 				$biggerLabelGroup.attr('transform', `translate(0,${axisPadding*1.5})`)
 				$biggerLabel.attr('transform', `translate(25,0)`)

@@ -23,6 +23,21 @@
 .area
 	fill rgba($hb-yellow, 0.15)
 
+.f-label, .m-label
+	font-family $cooper
+	set-type-size('large', true)
+	+mq('bp-4')
+		set-type-size('x-large', true)
+	+mq('bp-5')
+		set-type-size('xx-large', true)
+
+.f-label
+	fill $hb-green
+	text-anchor end
+
+.m-label
+	fill $hb-yellow
+
 .x.axis
 	.domain
 			display none
