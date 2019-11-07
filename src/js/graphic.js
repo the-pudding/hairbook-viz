@@ -11,7 +11,9 @@ let chartTrends = null;
 
 const $trendLines = d3.select('.chart figure')
 
-function resize() {}
+function resize() {
+  chartTrends.resize()
+}
 
 function setupTrendLines(data) {
   chartTrends = $trendLines
