@@ -109,7 +109,6 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 		function getTicks(w) {
 			if (w > 640) { numTicks = 10 }
 			else { numTicks = 5 }
-			console.log(numTicks)
 		}
 
 		function syncDecade(year) {
@@ -153,7 +152,14 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 			const invertedY = yScale.invert($mouseY)
 			const year = invertedX.toString()
 			const match = d[0].find(v => v.year === year)
-			const fMatch = (+match.smoothed).toFixed(3)
+
+			const fData = d[0].filter(d => d.gender == 'Female')
+			const fMatch = fData.find(v => v.year === year)
+			const fNum = (+fMatch.smoothed).toFixed(3)
+
+			const mData = d[0].filter(d => d.gender == 'Male')
+			const mMatch = mData.find(v => v.year === year)
+			const mNum = (+mMatch.smoothed).toFixed(3)
 
 			const right = $mouseX > window.innerWidth / 2
 			const offset = right ? $tooltip.node().offsetWidth + 10 : -10
@@ -170,11 +176,11 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 					</div>
 					<div class='f-tip'>
 						<div class='line'></div>
-						<p>Women: ${fMatch}</p>
+						<p>Women: ${fNum}</p>
 					</div>
 					<div class='m-tip'>
 						<div class='line'></div>
-						<p>Men: </p>
+						<p>Men: ${mNum}</p>
 					</div>`
 				})
 

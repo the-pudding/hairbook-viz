@@ -16,16 +16,18 @@
 	fill none
 
 .Male
-	stroke $hb-yellow
+	stroke $hb-blue
 	stroke-width 4px
 	fill none
 
 .area
-	fill rgba($hb-yellow, 0.15)
+	fill rgba($hb-tan, 0.2)
 
 .f-label, .m-label
 	font-family $cooper
-	set-type-size('large', true)
+	set-type-size('medium', true)
+	+mq('bp-2-5')
+		set-type-size('large', true)
 	+mq('bp-4')
 		set-type-size('x-large', true)
 	+mq('bp-5')
@@ -36,7 +38,7 @@
 	text-anchor end
 
 .m-label
-	fill $hb-yellow
+	fill $hb-blue
 
 .x.axis
 	.domain
@@ -89,7 +91,7 @@
 
 	.m-tip .line
 		width 15px
-		border-top 3px solid $hb-yellow
+		border-top 3px solid $hb-blue
 		margin-right 5px
 
 	p
@@ -138,14 +140,16 @@
 				margin 0 0 0.5rem 0
 
 				.f-span
-					background-repeat no-repeat
-					background-image linear-gradient(180deg,transparent 0,$hb-green 0)
-					background-position 0 1em
+					color $hb-green
+					// background-repeat no-repeat
+					// background-image linear-gradient(180deg,transparent 0,$hb-green 0)
+					// background-position 0 1em
 
 				.m-span
-					background-repeat no-repeat
-					background-image linear-gradient(180deg,transparent 0,$hb-yellow 0)
-					background-position 0 1em
+					color $hb-blue
+					// background-repeat no-repeat
+					// background-image linear-gradient(180deg,transparent 0,$hb-blue 0)
+					// background-position 0 1em
 
 		.images
 			width 100%
