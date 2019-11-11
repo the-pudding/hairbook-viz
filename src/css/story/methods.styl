@@ -2,22 +2,116 @@
 .methods
 	margin-bottom 8rem
 	padding 0 1rem
+	position relative
 
 	&__text
 		border-top 1px solid $off-black
 		padding-top 3rem
 		max-width $column-width
 		margin 0 auto
+		height 500px
+		overflow hidden
+
+		.img-wrapper
+			width 100%
+			display flex
+			flex-direction column
+			margin-bottom 1.5rem
+			+mq('bp-3')
+				flex-direction row
+				justify-content space-between
+
+			.set
+				max-width 250px
+				width 100%
+				margin 0 auto 1rem auto
+				display flex
+				flex-direction row
+				+mq('bp-3')
+					width calc(33% - 1rem)
+
+				img
+					width 50%
+
+		.no-space
+			margin-bottom 0
+
+		h2
+			color $off-black
+			font-family $cooper
+			font-weight 700
+			set-type-size('x-large', true)
+			color $off-black
+			margin 0 0 0.5rem 0
 
 		h5
 			color $off-black
 			font-family $courier
 			font-weight 700
 			set-type-size('root', true)
+			margin 1.5rem 0 -0.25rem 0
 			text-transform uppercase
-			margin 0
+
+		.fail
+			font-style italic
 
 		p
 			color $off-black
-			set-type-size('small', true)
+			set-type-size('small')
 			font-family $national
+			margin 0 0 1.5rem 0
+
+			a
+				&:hover
+					color $hb-blue
+					border-bottom 1px solid $hb-blue
+
+			span
+				font-weight 700
+
+		ol
+			list-style-position outside
+			padding 0 2rem
+
+			li
+				color $off-black
+				set-type-size('small', true)
+				font-family $national
+				&:before
+					font-weight 700
+
+				span
+					font-weight 700
+
+	&__fade
+		width 100%
+		position absolute
+		bottom 5rem
+		left 0
+		height 10rem
+		background-image linear-gradient(rgba($hb-paper, 0), rgba($hb-paper, 1))
+		z-index setOverlay('overlay')
+		display none
+
+		&.is-visible
+			display inline-block
+
+	&__button
+		max-width $column-width
+		margin 0 auto
+		display none
+		justify-content center
+
+		&.is-visible
+			display flex
+
+		button
+			margin 4rem auto 0 auto
+			padding 0.75rem 1rem
+			color $hb-paper
+			font-weight 700
+			font-family $courier
+			text-transform uppercase
+			background-color $off-black
+			&:hover
+				background-color $hb-blue

@@ -10,6 +10,9 @@ let combinedData = [];
 let chartTrends = null;
 
 const $trendLines = d3.select('.chart figure')
+const $seeMoreButton = d3.select('.methods__button')
+const $methodsText = d3.select('.methods__text')
+const $fade = d3.select('.methods__fade')
 
 function resize() {
   chartTrends.resize()
@@ -21,6 +24,12 @@ function setupTrendLines(data) {
     .puddingTrendLines()
 }
 
+function handleSeeMore() {
+  $methodsText.style('height', 'auto')
+  $fade.classed('is-visible', false)
+  $seeMoreButton.classed('is-visible', false)
+}
+
 function init() {
   loadData().then(result => {
     femaleTrendData = result[0]
@@ -30,6 +39,8 @@ function init() {
     combinedData.push(genderTrendData, photoData)
 
     setupTrendLines(combinedData)
+
+    $seeMoreButton.on('click', handleSeeMore)
   })
 }
 

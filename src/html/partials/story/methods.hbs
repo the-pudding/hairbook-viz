@@ -1,8 +1,73 @@
 <div class='methods'>
 	<div class='methods__text'>
-		<h5>Methods</h5>
-		{{#each copy.methods}}
+		<h2>Methods</h2>
+		{{#each copy.methods1}}
+			<h5>{{{hed}}}</h5>
+			<p>{{{text}}}</p>
+		{{/each}}
+		<ol>
+		{{#each copy.imgPros}}
+			<li><span>{{{led}}}</span>{{{text}}}</li>
+		{{/each}}
+		</ol>
+		{{#each copy.methods2}}
+			<h5>{{{hed}}}</h5>
+			<p>{{{text}}}</p>
+		{{/each}}
+		{{#each copy.methods2add}}
 			<p>{{{value}}}</p>
 		{{/each}}
-	</text>
+		<div class='img-wrapper'>
+			<div class='set'>
+				<img src='assets/images/methods/hairmap1photo.png'>
+				<img src='assets/images/methods/hairmap1hair.png'>
+			</div>
+			<div class='set'>
+				<img src='assets/images/methods/hairmap2photo.png'>
+				<img src='assets/images/methods/hairmap2hair.png'>
+			</div>
+			<div class='set'>
+				<img src='assets/images/methods/hairmap3photo.png'>
+				<img src='assets/images/methods/hairmap3hair.png'>
+			</div>
+		</div>
+		{{#each copy.methods2add2}}
+			<p>{{{value}}}</p>
+		{{/each}}
+		<div class='img-wrapper no-space'>
+			<div class='set'>
+				<img src='assets/images/methods/fail1photo.png'>
+				<img src='assets/images/methods/fail1hair.png'>
+			</div>
+			<div class='set'>
+				<img src='assets/images/methods/fail2photo.png'>
+				<img src='assets/images/methods/fail2hair.png'>
+			</div>
+			<div class='set'>
+				<img src='assets/images/methods/fail3photo.png'>
+				<img src='assets/images/methods/fail3hair.png'>
+			</div>
+		</div>
+		{{#each copy.methods2fail}}
+			<p class='fail'>{{{value}}}</p>
+		{{/each}}
+		{{#each copy.methods2add3}}
+			<p>{{{value}}}</p>
+		{{/each}}
+		{{#each copy.methods3}}
+			<h5>{{{hed}}}</h5>
+			<p>{{{text}}}</p>
+		{{/each}}
+		{{#each copy.methods4}}
+			<h5>{{{hed}}}</h5>
+			<p>{{{text}}}</p>
+		{{/each}}
+		{{#each copy.methods4add}}
+			<p>{{{value}}}</p>
+		{{/each}}
+	</div>
+	<div class='methods__fade is-visible'></div>
+	<div class='methods__button is-visible'>
+		<button>See more</button>
+	</div>
 </div>
