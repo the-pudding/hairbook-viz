@@ -124,8 +124,6 @@ d3.selection.prototype.puddingTrendLines = function init(options) {
 		}
 
 		function appendPhotos(match) {
-			// console.log(match.year)
-			//
 			let decadeMatch = syncDecade(match.year)
 
 			$fPhoto = $fPhotoContainer.selectAll('img')
